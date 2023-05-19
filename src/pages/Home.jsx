@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import data from "../data/students.json";
 import { AttendanceContext } from "../contexts";
 
 function Home() {
   let key = 0;
 
-  const { handleClick } = useContext(AttendanceContext);
+  const { addAttendance } = useContext(AttendanceContext);
 
   return (
     <div className="container">
@@ -28,7 +28,7 @@ function Home() {
           ))}
         </ul>
       </div>
-      <button onClick={handleClick}>Submit</button>
+      <button onClick={addAttendance}>Submit</button>
     </div>
   );
 }

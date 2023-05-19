@@ -6,7 +6,7 @@ import { AttendanceContext } from "../contexts";
 function Root() {
   const [attendance, setAttendance] = useState({});
 
-  const handleClick = (e) => {
+  const addAttendance = (e) => {
     const date = document.querySelector("#date");
     console.log(date.value);
     if (date.value === "") {
@@ -28,10 +28,8 @@ function Root() {
     console.log("Success");
   };
 
-  console.log(attendance);
-
   return (
-    <AttendanceContext.Provider value={{ handleClick }}>
+    <AttendanceContext.Provider value={{ addAttendance, attendance }}>
       <Header />
       <Outlet />
     </AttendanceContext.Provider>
