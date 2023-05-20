@@ -5,10 +5,9 @@ import { AttendanceContext } from "../contexts";
 
 function Root() {
   const [attendance, setAttendance] = useState({});
-  console.log(import.meta.env.API_ENDPOINT);
   const authorization = `Bearer ${import.meta.env.API_AUTHORIZATION}`;
 
-  const addAttendance = async (e) => {
+  const addAttendance = async () => {
     const date = document.querySelector("#date");
     console.log(date.value);
     if (date.value === "") {
