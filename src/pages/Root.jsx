@@ -6,6 +6,7 @@ import { AttendanceContext } from "../contexts";
 function Root() {
   const [attendance, setAttendance] = useState({});
   console.log(import.meta.env.API_ENDPOINT);
+  const authorization = `Bearer ${import.meta.env.API_AUTHORIZATION}`;
 
   const addAttendance = async (e) => {
     const date = document.querySelector("#date");
@@ -25,8 +26,6 @@ function Root() {
       .filter((checkbox) => !checkbox.checked)
       .map((box) => box.value);
     setAttendance({ date: date.value, presentStudents, absentStudents });
-
-    const authorization = `Bearer ${import.meta.env.API_AUTHORIZATION}`;
 
     // try {
     //   const res = await fetch(import.meta.env.API_ENDPOINT, {
