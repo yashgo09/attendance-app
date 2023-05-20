@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
-      <h1>Attendance App</h1>
+      <h1>
+        <Link to="/">
+          <span className="highlight">Attendance</span> App
+        </Link>
+      </h1>
       <nav className="nav">
         <ul>
           <li>

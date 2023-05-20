@@ -9,7 +9,7 @@ function ErrorPage() {
     <>
       <Header />
       <main className="error-page">
-        <h1>Something Went Wrong!</h1>
+        <h1>Something Went Wrong! 😥</h1>
         <i>{error.statusText || error.message}</i>
       </main>
     </>

@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <div className="container">
-      <input type="date" name="date" id="date" />
+      <input type="date" name="date" className="date" id="date" />
       <div className="students">
         <ul className="students__list">
           {data.map((data) => (
@@ -28,7 +28,9 @@ function Home() {
           ))}
         </ul>
       </div>
-      <button onClick={addAttendance}>Submit</button>
+      <button className="btn" data-style="primary" onClick={addAttendance}>
+        Submit
+      </button>
     </div>
   );
 }
