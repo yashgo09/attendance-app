@@ -14,7 +14,6 @@ function Root() {
     console.log(date.value);
     console.log(typeof date.value);
     if (date.value === "") {
-      console.error("Please select Date");
       alert("Please select Date");
       date.focus();
       return;

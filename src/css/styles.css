@@ -57,6 +57,18 @@ header {
   align-self: center;
   /* background: linear-gradient(to bottom, hsl(0, 0%, 25%), hsl(0, 0%, 24%)); */
   background-color: hsl(0, 0%, 22%);
+  position: sticky;
+  top: 0;
+  padding-block: 1.5em;
+}
+
+header.page-scrolled {
+  padding-block: 1.1em;
+}
+
+header h1,
+header ul {
+  margin: 0;
 }
 
 .highlight {
@@ -115,10 +127,16 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
+  border-bottom: 1px solid #474747;
+}
+
+.history-container:not(:last-of-type) {
+  margin-block-end: 1.6em;
 }
 
 .history-container .date {
   grid-column: span 2;
+  margin: 0;
 }
 
 .students-list li {

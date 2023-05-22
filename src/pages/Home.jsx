@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import data from "../data/students.json";
 import { AttendanceContext } from "../contexts";
 import Loading from "../components/Loading";
 
