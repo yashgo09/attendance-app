@@ -40,8 +40,8 @@ function Root() {
         body: JSON.stringify({
           fields: {
             date: date.value,
-            present_students: presentStudents,
-            // absent_students: absentStudents,
+            present_students_id: presentStudents,
+            absent_students_id: absentStudents,
           },
         }),
       });
