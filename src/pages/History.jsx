@@ -5,11 +5,16 @@ export default function History() {
   const [attendanceData, setAttendanceData] = useState();
   // TODO: Add all these fetch methods inside try catch blocks
   const getData = async () => {
-    const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/tbldXf1ku6Ry6Vypo`, {
-      headers: {
-        Authorization: import.meta.env.VITE_API_AUTHORIZATION,
-      },
-    });
+    const response = await fetch(
+      `${
+        import.meta.env.VITE_API_ENDPOINT
+      }/tbldXf1ku6Ry6Vypo?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc`,
+      {
+        headers: {
+          Authorization: import.meta.env.VITE_API_AUTHORIZATION,
+        },
+      }
+    );
     const jsonData = await response.json();
     // console.log(jsonData.records);
     setAttendanceData(jsonData.records);
@@ -28,13 +33,15 @@ export default function History() {
         <p className="date">{data.fields.date}</p>
         <div className="present-students">
           <h2 className="attendance-title">Present Students</h2>
-          <ul>
+          <ul className="students-list">
             {data.fields.present_students_names.map((student) => (
               <li key={listKey++}>{student}</li>
             ))}
           </ul>
+        </div>
+        <div className="absent-students">
           <h2 className="attendance-title">Absent Students</h2>
-          <ul>
+          <ul className="students-list">
             {data.fields.absent_students_names.map((student) => (
               <li key={listKey++}>{student}</li>
             ))}

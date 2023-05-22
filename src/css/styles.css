@@ -110,3 +110,21 @@ header {
 .present-checkbox {
   accent-color: var(--clr-primary);
 }
+
+.history-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.history-container .date {
+  grid-column: span 2;
+}
+
+.students-list li {
+  padding: 0.5em;
+}
+
+.students-list li:nth-last-of-type(even) {
+  background: #474747;
+}
