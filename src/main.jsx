@@ -5,6 +5,7 @@ import "./css/styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root.jsx";
 import ErrorPage from "./pages/ErrorPage";
+import History from "./pages/History";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <App />,
+      },
+      {
+        path: "/history",
+        element: <History />,
       },
     ],
   },
