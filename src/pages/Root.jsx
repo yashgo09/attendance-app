@@ -7,17 +7,22 @@ function Root() {
   // const [attendance, setAttendance] = useState({});
   const TBL_ATTENDANCE_DATA = "tbldXf1ku6Ry6Vypo";
 
-  const authorization = `Bearer ${import.meta.env.API_AUTHORIZATION}`;
+  function showSuccessMessage() {
+    console.log("Success");
+  }
 
-  const addAttendance = async () => {
+  const addAttendance = async (e) => {
+    e.target.disabled = true;
+
+    // Check if date is selected or not.
     const date = document.querySelector("#date");
-    console.log(date.value);
-    console.log(typeof date.value);
     if (date.value === "") {
       alert("Please select Date");
       date.focus();
+      // Return from here if the date is not selected.
       return;
     }
+
     const presentCheckboxes = [...document.querySelectorAll(".present-checkbox")];
     const presentStudents = presentCheckboxes
       .filter((checkbox) => checkbox.checked)
@@ -45,22 +50,16 @@ function Root() {
         }),
       });
       const json = await response.json();
+
+      showSuccessMessage();
+      [...document.querySelectorAll(".present-checkbox")].forEach((box) => (box.checked = false));
+      date.value = "";
+      e.target.disabled = false;
+
       return json;
     } catch (e) {
       console.error(e);
     }
-
-    console.log("Success:::::::", json);
-
-    // try {
-    //   const res = await fetch(import.meta.env.API_ENDPOINT, {
-    //     headers: {
-    //       Authorization: authorization,
-    //     },
-    //   });
-    // } catch (err) {
-    //   console.err(err);
-    // }
   };
 
   return (

@@ -37,8 +37,16 @@ a:focus-visible {
   cursor: pointer;
 }
 
+.btn[disabled] {
+  cursor: not-allowed;
+}
+
 .btn[data-style="primary"] {
   background-color: var(--clr-primary);
+}
+
+.btn[data-style="primary"][disabled] {
+  background-color: #474747;
 }
 
 .btn[data-style="primary"]:active {
