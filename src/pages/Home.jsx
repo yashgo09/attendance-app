@@ -10,7 +10,7 @@ function Home() {
   const [students, setStudents] = useState();
 
   const getStudentsData = async () => {
-    const response = await fetch(import.meta.env.VITE_API_ENDPOINT, {
+    const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/students`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,8 @@ function Home() {
                   <input
                     className="present-checkbox"
                     type="checkbox"
-                    value={data.id}
+                    data-record-id={data.id}
+                    value={data.fields.id}
                     name="present"
                   />
                   Present
