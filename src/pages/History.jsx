@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 
 export default function History() {
   const [attendanceData, setAttendanceData] = useState();
@@ -45,13 +46,7 @@ export default function History() {
   return (
     <main>
       <h1>History of Attendance</h1>
-      {attendanceData ? (
-        attendanceMarkup
-      ) : (
-        <p className="loading">
-          <i>Loading data...</i>
-        </p>
-      )}
+      {attendanceData ? attendanceMarkup : <Loading />}
     </main>
   );
 }

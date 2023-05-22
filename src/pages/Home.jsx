@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import data from "../data/students.json";
 import { AttendanceContext } from "../contexts";
+import Loading from "../components/Loading";
 
 function Home() {
   let key = 0;
@@ -32,7 +33,7 @@ function Home() {
       <input type="date" name="date" className="date" id="date" />
       <div className="students">
         <ul className="students__list">
-          {students &&
+          {students ? (
             students.map((data) => (
               <li key={data.id}>
                 <p>{data.fields.name}</p>
@@ -47,7 +48,10 @@ function Home() {
                   Present
                 </label>
               </li>
-            ))}
+            ))
+          ) : (
+            <Loading />
+          )}
         </ul>
       </div>
       <button className="btn" data-style="primary" onClick={addAttendance}>
