@@ -16,9 +16,11 @@ export default function History() {
       }
     );
     const jsonData = await response.json();
-    console.log(jsonData.records);
+    // console.log(jsonData.records);
     setAttendanceData(jsonData.records);
   };
+
+  // console.log("Attendance DATA STAte", attendanceData);
 
   useEffect(() => {
     getData();
@@ -33,17 +35,20 @@ export default function History() {
           <div className="present-students">
             <h2 className="attendance-title">Present Students</h2>
             <ul className="students-list">
-              {data.fields.present_students_names.map((student) => (
-                <li key={listKey++}>{student}</li>
-              ))}
+              {/* Need to check this otherwise it will return error if the present_students_names is empty in case all were absent 😅 */}
+              {data.fields.present_students_names &&
+                data.fields.present_students_names.map((student) => (
+                  <li key={listKey++}>{student}</li>
+                ))}
             </ul>
           </div>
           <div className="absent-students">
             <h2 className="attendance-title">Absent Students</h2>
             <ul className="students-list">
-              {data.fields.absent_students_names.map((student) => (
-                <li key={listKey++}>{student}</li>
-              ))}
+              {data.fields.absent_students_names &&
+                data.fields.absent_students_names.map((student) => (
+                  <li key={listKey++}>{student}</li>
+                ))}
             </ul>
           </div>
         </div>
