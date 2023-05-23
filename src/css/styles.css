@@ -108,6 +108,10 @@ header ul {
   margin: 0;
 }
 
+input {
+  accent-color: var(--clr-primary);
+}
+
 .highlight {
   color: var(--clr-primary);
 }
@@ -156,8 +160,13 @@ header ul {
   background-color: hsl(0, 0%, 23%);
 }
 
-.present-checkbox {
-  accent-color: var(--clr-primary);
+.attendance-inputs {
+  display: flex;
+  gap: 4em;
+}
+
+.attendance-inputs label {
+  user-select: none;
 }
 
 .history-container {

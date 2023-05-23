@@ -36,16 +36,28 @@ function Home() {
             students.map((data) => (
               <li key={data.id}>
                 <p>{data.fields.name}</p>
-                <label>
-                  <input
-                    className="present-checkbox"
-                    type="checkbox"
-                    data-record-id={data.id}
-                    value={data.fields.id}
-                    name="present"
-                  />
-                  Present
-                </label>
+                <div className="attendance-inputs">
+                  <label>
+                    <input
+                      className="present-checkbox"
+                      type="checkbox"
+                      data-record-id={data.id}
+                      value={data.fields.id}
+                      name="present"
+                    />
+                    Present
+                  </label>
+                  <label>
+                    <input
+                      className="laptop-checkbox"
+                      type="checkbox"
+                      data-record-id={data.id}
+                      value={data.fields.id}
+                      name="present"
+                    />
+                    💻
+                  </label>
+                </div>
               </li>
             ))
           ) : (
