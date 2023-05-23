@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import { AttendanceContext } from "../contexts";
+import SuccessMessage from "../components/SuccessMessage";
 
 function Root() {
   // const [attendance, setAttendance] = useState({});
   const TBL_ATTENDANCE_DATA = "tbldXf1ku6Ry6Vypo";
 
   function showSuccessMessage() {
-    console.log("Success");
+    const successMessage = document.querySelector(".success-message");
+    successMessage.classList.add("show");
+    setTimeout(() => {
+      successMessage.classList.remove("show");
+    }, 2000);
   }
 
   const addAttendance = async (e) => {
@@ -19,6 +24,7 @@ function Root() {
     if (date.value === "") {
       alert("Please select Date");
       date.focus();
+      e.target.disabled = false;
       // Return from here if the date is not selected.
       return;
     }
@@ -65,6 +71,7 @@ function Root() {
   return (
     <AttendanceContext.Provider value={{ addAttendance }}>
       <Header />
+      <SuccessMessage />
       <div className="container">
         <Outlet />
       </div>
