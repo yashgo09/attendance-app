@@ -49,13 +49,13 @@ function Home() {
                   </label>
                   <label>
                     <input
-                      className="laptop-checkbox"
+                      className="task-checkbox"
                       type="checkbox"
                       data-record-id={data.id}
                       value={data.fields.id}
                       name="present"
                     />
-                    💻
+                    Task
                   </label>
                 </div>
               </li>

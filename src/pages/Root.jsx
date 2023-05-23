@@ -36,11 +36,11 @@ function Root() {
       (box) => box.dataset.recordId
     );
 
-    const studentsWithLaptop = [...document.querySelectorAll(".laptop-checkbox:checked")].map(
+    const studentsTaksDone = [...document.querySelectorAll(".task-checkbox:checked")].map(
       (box) => box.dataset.recordId
     );
 
-    console.log(studentsWithLaptop);
+    // console.log(studentsTaksDone);
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/${TBL_ATTENDANCE_DATA}`, {
@@ -54,7 +54,7 @@ function Root() {
             date: date.value,
             present_students_id: presentStudents,
             absent_students_id: absentStudents,
-            students_with_laptop_id: studentsWithLaptop,
+            task_done: studentsTaksDone,
           },
         }),
       });

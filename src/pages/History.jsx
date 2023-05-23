@@ -42,8 +42,21 @@ export default function History() {
                 ))}
             </ul>
           </div>
+          <div className="students-task-status">
+            <h2 className="attendance-title" data-style="task">
+              Task Completed
+            </h2>
+            <ul className="students-list">
+              {data.fields.task_done_names &&
+                data.fields.task_done_names.map((student) => (
+                  <li key={listKey++}>{student} - Completed</li>
+                ))}
+            </ul>
+          </div>
           <div className="absent-students">
-            <h2 className="attendance-title">Absent Students</h2>
+            <h2 className="attendance-title" data-style="absent">
+              Absent Students
+            </h2>
             <ul className="students-list">
               {data.fields.absent_students_names &&
                 data.fields.absent_students_names.map((student) => (

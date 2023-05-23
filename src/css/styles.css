@@ -171,7 +171,7 @@ input {
 
 .history-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1em;
   border-bottom: 1px solid #474747;
 }
@@ -181,7 +181,7 @@ input {
 }
 
 .history-container .date {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   margin: 0;
 }
 
@@ -191,4 +191,12 @@ input {
 
 .students-list li:nth-last-of-type(even) {
   background: #474747;
+}
+
+.attendance-title[data-style="absent"] {
+  color: #ff5b5b;
+}
+
+.attendance-title[data-style="task"] {
+  color: #ff5b89;
 }
