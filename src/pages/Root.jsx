@@ -5,7 +5,6 @@ import { AttendanceContext } from "../contexts";
 import SuccessMessage from "../components/SuccessMessage";
 
 function Root() {
-  // const [attendance, setAttendance] = useState({});
   const TBL_ATTENDANCE_DATA = "tbldXf1ku6Ry6Vypo";
 
   function showSuccessMessage() {
@@ -29,15 +28,14 @@ function Root() {
       return;
     }
 
-    const presentCheckboxes = [...document.querySelectorAll(".present-checkbox")];
-    const presentStudents = presentCheckboxes
-      .filter((checkbox) => checkbox.checked)
-      .map((box) => box.dataset.recordId);
+    const presentStudents = [...document.querySelectorAll(".present-checkbox:checked")].map(
+      (box) => box.dataset.recordId
+    );
     console.log(presentStudents);
 
-    const absentStudents = presentCheckboxes
-      .filter((checkbox) => !checkbox.checked)
-      .map((box) => box.dataset.recordId);
+    const absentStudents = [...document.querySelectorAll(".present-checkbox:not(:checked)")].map(
+      (box) => box.dataset.recordId
+    );
     // setAttendance({ date: date.value, presentStudents, absentStudents });
 
     try {
