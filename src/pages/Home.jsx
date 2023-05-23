@@ -38,6 +38,7 @@ function Home() {
                 <p>{data.fields.name}</p>
                 <div className="attendance-inputs">
                   <label>
+                    🙋🏻
                     <input
                       className="present-checkbox"
                       type="checkbox"
@@ -48,6 +49,7 @@ function Home() {
                     Present
                   </label>
                   <label>
+                    🎯
                     <input
                       className="task-checkbox"
                       type="checkbox"
@@ -55,7 +57,7 @@ function Home() {
                       value={data.fields.id}
                       name="present"
                     />
-                    Task
+                    Task Completed
                   </label>
                 </div>
               </li>
