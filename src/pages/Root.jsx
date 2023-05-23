@@ -31,12 +31,16 @@ function Root() {
     const presentStudents = [...document.querySelectorAll(".present-checkbox:checked")].map(
       (box) => box.dataset.recordId
     );
-    console.log(presentStudents);
 
     const absentStudents = [...document.querySelectorAll(".present-checkbox:not(:checked)")].map(
       (box) => box.dataset.recordId
     );
-    // setAttendance({ date: date.value, presentStudents, absentStudents });
+
+    const studentsWithLaptop = [...document.querySelectorAll(".laptop-checkbox:checked")].map(
+      (box) => box.dataset.recordId
+    );
+
+    console.log(studentsWithLaptop);
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/${TBL_ATTENDANCE_DATA}`, {
@@ -50,13 +54,16 @@ function Root() {
             date: date.value,
             present_students_id: presentStudents,
             absent_students_id: absentStudents,
+            students_with_laptop_id: studentsWithLaptop,
           },
         }),
       });
       const json = await response.json();
 
       showSuccessMessage();
-      [...document.querySelectorAll(".present-checkbox")].forEach((box) => (box.checked = false));
+      [...document.querySelectorAll("input[type='checkbox']")].forEach(
+        (box) => (box.checked = false)
+      );
       date.value = "";
       e.target.disabled = false;
 
